@@ -1,0 +1,37 @@
+\documentclass[10pt,t]{beamer}
+\usetheme{desynew}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\title{Presentation\\Title}
+\subtitle{Some Subtitle}
+\author[N. Surname]{Name Surname}
+\institute[ShortConf]{Conference Name}
+\date[\today]{\today}
+
+\setbeamertemplate{second logo in title page}[desycms]
+\setbeamertemplate{title in footline}[institute]
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+	\frametitle{A Frame Title}
+	\framesubtitle{With a subtitle}
+    \begin{columns}[onlytextwidth]
+        \column{0.472\textwidth}
+        \begin{block}{Left block}
+        \begin{itemize}
+            \item First item
+            \item Second item
+        \end{itemize}
+        \end{block}
+        \column{0.472\textwidth}
+        \begin{block}{Right block}
+            \includegraphics[width=\textwidth]{example-image-a}
+        \end{block}
+    \end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,43 @@
+\ProvidesPackage{beamerouterthemedesynew}[2017/11/06]
+
+\RequirePackage[absolute,overlay]{textpos}
+
+\defbeamertemplate{frametitle}{desy}{%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.044\paperwidth)
+        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle
+    \end{textblock*}%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.125\paperheight)
+        \usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle
+    \end{textblock*}%
+    \vspace*{0.207\textheight}%
+}
+\setbeamertemplate{frametitle}[desy]
+
+\defbeamertemplate{footline}{desy}{%
+    \hspace*{0.044\paperwidth}\raisebox{0.027\paperheight}[0.064\paperheight][0pt]{%
+        \usebeamercolor[fg]{text in footline}\usebeamerfont{text in footline}%
+        \usebeamertemplate{logo in footline}%
+        \usebeamertemplate{title in footline}%
+        \ifx\insertshortauthor\@empty\else~|~\insertshortauthor\fi%
+        \ifx\insertshortdate\@empty\else, \insertshortdate\fi%
+    }\hfill\raisebox{0.027\paperheight}{%
+        \usebeamerfont{page number in footline}\pagename~\insertframenumber
+    }\hspace*{0.044\paperwidth}%
+}
+\setbeamertemplate{footline}[desy]
+
+\defbeamertemplate{logo in footline}{desy}{%
+    {\fontfamily{pag}\fontseries{bx}\selectfont%
+    \usebeamercolor[fg]{emphasized text}DESY\usebeamercolor[fg]{alerted text}.}%
+}
+\setbeamertemplate{logo in footline}[desy]
+
+\defbeamertemplate{title in footline}{title}{%
+    \ifx\insertshorttitle\@empty\else~|~\insertshorttitle\fi%
+}
+\defbeamertemplate{title in footline}{institute}{%
+    \ifx\insertshortinstitute\@empty\else~|~\insertshortinstitute\fi%
+}
+\setbeamertemplate{title in footline}[title]
+
+\setbeamertemplate{navigation symbols}{}

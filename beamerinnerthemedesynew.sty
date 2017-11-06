@@ -1,0 +1,104 @@
+\ProvidesPackage{beamerinnerthemedesynew}[2017/11/06]
+
+\RequirePackage[absolute,overlay]{textpos}
+
+\setbeamertemplate{title page}{%
+    \begin{textblock*}{\paperwidth}(0cm,0cm)
+        \usebeamertemplate{graphic in title page}
+    \end{textblock*}%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.086\paperheight)
+        \usebeamerfont{main title in title page}\usebeamertemplate{main title in title page}
+    \end{textblock*}%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.352\paperheight)
+        \usebeamercolor[fg]{subtitle in title page}\usebeamerfont{subtitle in title page}\insertsubtitle
+    \end{textblock*}%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.605\paperheight)
+        \usebeamertemplate{more text in title page}
+    \end{textblock*}%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.914\paperheight)
+        \usebeamertemplate{first logo in title page}
+    \end{textblock*}%
+    \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.825\paperheight)
+        \hfill\usebeamertemplate{second logo in title page}
+    \end{textblock*}
+}
+
+\defbeamertemplate{graphic in title page}{user}{%
+    \inserttitlegraphic%
+}
+\defbeamertemplate{graphic in title page}{desy}{%
+    \includegraphics[width=\paperwidth]{graphics/desy}%
+}
+\defbeamertemplate{graphic in title page}{empty}{}
+
+\defbeamertemplate{main title in title page}{desy}{%
+    \usebeamercolor[fg]{main title on graphic}\inserttitle
+}
+\defbeamertemplate{main title in title page}{empty}{%
+    \usebeamercolor[fg]{main title on empty}\inserttitle
+}
+\defbeamertemplatealias{main title in title page}{cms}{desy}
+\defbeamertemplatealias{main title in title page}{user}{desy}
+
+\defbeamertemplateparent{title graphic}{graphic in title page,main title in title page}{}
+\setbeamertemplate{title graphic}[desy]
+
+\setbeamertemplate{more text in title page}{%
+    \usebeamercolor[fg]{more text in title page}\usebeamerfont{more text in title page}%
+    \ifx\insertauthor\@empty\else\insertauthor\\\fi%
+    \ifx\insertinstitute\@empty\else\insertinstitute\\\fi%
+    \ifx\insertdate\@empty\else\insertdate\\\fi%
+}
+
+\edef\@@ngerman{\string ngerman}
+\defbeamertemplate{first logo in title page}{helmholtz}{%
+    \ifx\languagename\@@ngerman%
+    \includegraphics[scale=0.07]{logos/helmholtz_de}%
+    \else%
+    \includegraphics[scale=0.07]{logos/helmholtz_en}%
+    \fi%
+}
+\setbeamertemplate{first logo in title page}[helmholtz]
+
+\defbeamertemplate{second logo in title page}{desy}{%
+    \includegraphics[width=0.1\textwidth]{logos/desy}%
+}
+\defbeamertemplate{second logo in title page}{desycms}{%
+    \includegraphics[width=0.1\textwidth]{logos/desy}%
+    \hspace{0.05\textwidth}%
+    \includegraphics[width=0.1\textwidth]{logos/cms}%
+}
+\setbeamertemplate{second logo in title page}[desy]
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}{--}
+\def\@@enumerate{enumerate}
+\setbeamertemplate{itemize/enumerate body begin}{%
+    \ifx\@currenvir\@@enumerate%
+        \settowidth\leftmargini{\insertenumlabel.}%
+        \addtolength\leftmargini{\labelsep}%
+    \else%
+        \settowidth\leftmargini{\usebeamertemplate{itemize item}}%
+        \addtolength\leftmargini{\labelsep}%
+    \fi%
+}
+\setbeamertemplate{itemize/enumerate subbody begin}{%
+    \ifx\@currenvir\@@enumerate%
+        \settowidth\leftmarginii{\insertsubenumlabel.}%
+        \addtolength\leftmarginii{\labelsep}%
+    \else%
+        \settowidth\leftmarginii{\usebeamertemplate{itemize subitem}}%
+        \addtolength\leftmarginii{\labelsep}%
+    \fi%
+}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{%
+    \ifx\@currenvir\@@enumerate%
+        \settowidth\leftmarginiii{\insertsubsubenumlabel.}%
+        \addtolength\leftmarginiii{\labelsep}%
+    \else%
+        \settowidth\leftmarginiii{\usebeamertemplate{itemize subsubitem}}%
+        \addtolength\leftmarginiii{\labelsep}%
+    \fi%
+}
+\setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
+\setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
