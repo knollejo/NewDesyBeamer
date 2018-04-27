@@ -1,13 +1,13 @@
-\ProvidesPackage{beamerouterthemedesynew}[2017/11/06]
+\ProvidesPackage{beamerouterthemedesynew}[2018/04/27]
 
 \RequirePackage[absolute,overlay]{textpos}
 
 \defbeamertemplate{frametitle}{desy}{%
     \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.044\paperwidth)
-        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle
+        {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle}
     \end{textblock*}%
     \begin{textblock*}{0.912\paperwidth}(0.044\paperwidth,0.125\paperheight)
-        \usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle
+        {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle}
     \end{textblock*}%
     \vspace*{0.207\textheight}%
 }
@@ -27,8 +27,8 @@
 \setbeamertemplate{footline}[desy]
 
 \defbeamertemplate{logo in footline}{desy}{%
-    {\fontfamily{pag}\fontseries{bx}\selectfont%
-    \usebeamercolor[fg]{emphasized text}DESY\usebeamercolor[fg]{alerted text}.}%
+    \sbox{\z@}{DESY.}%
+    {\includegraphics[height=\ht\z@]{logos/desy_small}}%
 }
 \setbeamertemplate{logo in footline}[desy]
 

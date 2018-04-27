@@ -1,4 +1,4 @@
-\ProvidesPackage{beamerinnerthemedesynew}[2017/11/06]
+\ProvidesPackage{beamerinnerthemedesynew}[2018/04/27]
 
 \RequirePackage[absolute,overlay]{textpos}
 
@@ -102,3 +102,5 @@
 }
 \setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
 \setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
+
+\renewcommand<>{\emph}[1]{\alt#2{{\usebeamercolor[fg]{emphasized text}#1}}{#1}}

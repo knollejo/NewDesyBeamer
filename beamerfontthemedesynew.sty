@@ -1,4 +1,4 @@
-\ProvidesPackage{beamerfontthemedesynew}[2017/11/06]
+\ProvidesPackage{beamerfontthemedesynew}[2018/04/27]
 
 \RequirePackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
@@ -13,6 +13,10 @@
 
 \setbeamerfont{text in footline}{size=\tiny}
 \setbeamerfont{page number in footline}{series=\bfseries}
+
+\setbeamerfont{normal text}{size=\small}
+\RequirePackage{etoolbox}
+\preto\frametitle{\usebeamerfont{normal text}}
 
 \setbeamerfont{block title}{size=\small,series=\bfseries}
 \setbeamerfont{block body}{size=\small}
